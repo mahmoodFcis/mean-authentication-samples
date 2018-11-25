@@ -1,0 +1,4 @@
+{
+    "databaseServerUrl":"localhost://authSample",
+    "JWTPrivateKey":"vidly_jwtPrivateKey"
+  }
