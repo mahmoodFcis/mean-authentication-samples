@@ -30,8 +30,9 @@ const userSchema = new mongoose.Schema({
   
 
 var User=mongoose.model("User",userSchema);
-User.generateAuthenticationToken=()=>{
-    const token=jwt.sign({Role:this.Role,Name:this.Name},config.get("JWTPrivateKey"));
+User.generateAuthenticationToken=(role,name)=>{
+    console.log({Role:role,Name:name});
+    const token=jwt.sign({Role:role,Name:name},config.get("JWTPrivateKey"));
     return token;
 }
 

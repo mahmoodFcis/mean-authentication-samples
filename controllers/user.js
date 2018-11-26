@@ -1,19 +1,35 @@
 const express = require("express");
 const user = require('../models/user');
 const bcrypt = require("bcrypt");
+const authorization=require("../middleware/authorization");
+const authentication=require("../middleware/authenticate");
 const router = express.Router();
-var users = [{
-    name: "admin",
-    role: "admin"
-}, {
-    name: "user1",
-    role: "user"
-}]
-router.get('/', (req, res) => {
+const errorHandler=require("../middleware/errorHandler")
+router.post('/login',errorHandler(async (req,res)=>{
 
+   
+    var _user=await user.findOne({email:req.body.email});
+    if(!_user) return res.status(400).send(_user);
+    
+        const passwordMatch=await bcrypt.compare(req.body.password,_user.password);
+        if(!passwordMatch)
+        {
+          console.log("password is not correct");
+          return res.status(400).send("User name or password is not correct");
+        }
+        
+         const token=user.generateAuthenticationToken(_user.Role,_user.name);
+         res.header("x-auth-token",token).send({Id:_user._id
+            , name:_user.name});
+   
+    
+
+}));
+router.get("/",async (req,res)=>{
+var users=await user.find();
     res.send(users);
 
-});
+})
 router.get("/:name", async (req, res) => {
     var user1 = await user.findOne({
         name: req.params.name
@@ -64,6 +80,11 @@ router.post("/", async(req, res) => {
     res.status(200).send("is Added");
 
 
+});
+
+router.delete('/',authentication,authorization,(req,res)=>{
+// delete logic
+res.send("deleted");
 });
 // don't forget to export your controller
 module.exports=router;

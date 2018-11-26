@@ -2,6 +2,7 @@ const express=require("express");
 const user=require("./controllers/user");
 const mongoose=require("mongoose");
 const config=require("config");
+const errorHandler=require("./middleware/errorHandler");
 var app=express();
 
 
@@ -15,6 +16,7 @@ mongoose.connect(config.get("databaseServerUrl")).then(()=>{
 
 app.use(express.json());
 app.use('/apis/User/',user);
+
 var portNumber=config.get("port");
 app.listen(portNumber,()=>{ console.log(`listenning to port number ${portNumber}`);
 
