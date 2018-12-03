@@ -11,6 +11,7 @@ router.post('/login',errorHandler(async (req,res)=>{
     var _user=await user.findOne({email:req.body.email});
     if(!_user) return res.status(400).send(_user);
     
+    throw new Error("");
         const passwordMatch=await bcrypt.compare(req.body.password,_user.password);
         if(!passwordMatch)
         {
