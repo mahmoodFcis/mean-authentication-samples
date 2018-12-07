@@ -1,1 +1,1 @@
-Error: error at index.js
+TypeError: appDebugger.log is not a function

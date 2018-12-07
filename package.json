@@ -4,7 +4,7 @@
   "description": "Testing authentication",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --watchAll"
   },
   "keywords": [],
   "author": "",
@@ -12,8 +12,10 @@
   "dependencies": {
     "bcrypt": "^3.0.2",
     "config": "^1.29.4",
+    "debug": "^4.1.0",
     "express": "^4.16.2",
     "fawn": "^2.1.5",
+    "jest": "^23.6.0",
     "joi": "^13.1.0",
     "joi-objectid": "^2.0.0",
     "jsonwebtoken": "^8.1.1",
@@ -24,5 +26,6 @@
     "pino-pretty": "^2.4.0",
     "winston": "^3.1.0",
     "winston-mongodb": "^4.0.3"
-  }
+  },
+  "devDependencies": {}
 }

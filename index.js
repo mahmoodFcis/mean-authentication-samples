@@ -2,6 +2,9 @@ const express = require("express");
 const user = require("./controllers/user");
 const mongoose = require("mongoose");
 const config = require("config");
+const mongoDebugger=require("debug")("mongo");
+const appDebugger=require("debug")("index");
+
 var app = express();
 var log=require("./logs");
 
@@ -13,15 +16,15 @@ process.on("uncaughtException", function (err) {
     
 });
 process.on("unhandledRejection", function (ex) {
-    console.log("unhandled rejection");
+    appDebugger("unhandled rejection");
 });
 
-throw new Error("error at index.js");
+
 
 mongoose.connect(config.get("databaseServerUrl")).then(() => {
-    console.log('is connected to mongo');
+    mongoDebugger('is connected to mongo');
 }).catch((ex) => {
-    console.log(`cannot connect to mongo ${ex}`);
+    mongoDebugger(`cannot connect to mongo ${ex}`);
     process.exit();
 });
 
@@ -31,6 +34,6 @@ app.use('/apis/User/', user);
 
 var portNumber = config.get("port");
 app.listen(portNumber, () => {
-    console.log(`listenning to port number ${portNumber}`);
+    appDebugger(`listenning to port number ${portNumber}`);
 
 });
