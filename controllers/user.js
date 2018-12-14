@@ -32,6 +32,7 @@ var users=await user.find();
 
 })
 router.get("/:name", async (req, res) => {
+    
     var user1 = await user.findOne({
         name: req.params.name
     });

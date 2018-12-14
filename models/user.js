@@ -28,7 +28,6 @@ const userSchema = new mongoose.Schema({
     }
   });
   
-
 var User=mongoose.model("User",userSchema);
 User.generateAuthenticationToken=(role,name)=>{
     console.log({Role:role,Name:name});
