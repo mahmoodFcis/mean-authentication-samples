@@ -1,6 +1,8 @@
 {
     "databaseServerUrl":"mongodb://mongodbtest18.documents.azure.com:10250/mean?ssl=true&sslverifycertificate=false",
-    "JWTPrivateKey":"vidly_jwtPrivateKey",
+    "JWTPrivateKey":"R#@ss22P_Ke@y22",
     "dbUserName":"mongodbtest18",
-    "dbPassword":"obIn9Vb3kX0J85oKwAcIpWQhgh41g97gILJ6iCv2EAAgduwFG5bZf8QM9jShCNFR2tpYIiXNFakoeoVjHAo4bw=="
+    "dbPassword":"obIn9Vb3kX0J85oKwAcIpWQhgh41g97gILJ6iCv2EAAgduwFG5bZf8QM9jShCNFR2tpYIiXNFakoeoVjHAo4bw==",
+    "LogFilePath":"./logs/winstonlog.txt",
+    "port":5000
   }

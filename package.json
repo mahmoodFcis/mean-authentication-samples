@@ -4,13 +4,14 @@
   "description": "Testing authentication",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watchAll --coverage"
+    "test": "jasmine --watchAll --coverage"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^3.0.2",
+    "compression": "^1.7.3",
     "config": "^1.29.4",
     "debug": "^4.1.0",
     "express": "^4.16.2",

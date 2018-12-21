@@ -3,8 +3,8 @@ const winston=require("winston");
 const pino=require("pino")();
 require("pino-pretty");
 require("winston-mongodb");
-
-winston.add(new winston.transports.File({filename:"./logs/winstonlog.txt"}));
+const config=require("config");
+winston.add(new winston.transports.File({filename:config.get("LogFilePath")}));
 winston.add(new winston.transports.MongoDB({db:"mongodb://localhost/logs"}));
 module.exports = {
     info(msg) {

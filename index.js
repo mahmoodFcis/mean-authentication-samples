@@ -8,9 +8,20 @@ const helmet=require("helmet");
 
 var app = express();
 app.use(helmet());
+
 var log=require("./logs");
 
-mongoose.connect(config.get("databaseServerUrl")).then(() => {
+// if(app.get("env")==="development")
+// {
+//     mongoose.connect(config.get("databaseServerUrl")).then(() => {
+//         mongoDebugger('is connected to mongo');
+//     }).catch((ex) => {
+//         mongoDebugger(`cannot connect to mongo ${ex}`);
+//         process.exit();
+//     });
+// }
+mongoose.connect(config.get("databaseServerUrl"),
+{auth:{user:config.get("dbUserName"),password:config.get("dbPassword")}}).then(() => {
     mongoDebugger('is connected to mongo');
 }).catch((ex) => {
     mongoDebugger(`cannot connect to mongo ${ex}`);
