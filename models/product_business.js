@@ -12,17 +12,25 @@ module.exports = {
         try
         {
             let sortedProducts = [];
-            console.log(this.productsArr.length);
+            console.log(this.productsArr);
             for (var i = this.productsArr.length - 1; i >= 0; i--) {
                 var max = 0;
+                let maxIndex=0;
                 for (var index = 0; index <=i; index++) {
                     if (this.productsArr[index].price > max)
-                        max = this.productsArr[index].price;
+                    {
+                        maxIndex=index;
+                        max = this.productsArr[index];
+                    }
                 }
-                sortedProducts.push({price:max});
+                let currentVal=this.productsArr[i];
+
+                this.productsArr[i]=max;
+                this.productsArr[maxIndex]=currentVal;
+               
             }
-            this.productsArr=sortedProducts;
-            return sortedProducts;
+
+           return this.productsArr;
         }
         catch(e)
         {

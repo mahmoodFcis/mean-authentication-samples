@@ -1,0 +1,5 @@
+{
+    "databaseServerUrl":"mongodb://localhost/testAuthSample",
+    "JWTPrivateKey":"vidly_jwtPrivateKey",
+    "port":5000
+  }

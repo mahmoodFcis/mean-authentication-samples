@@ -1,0 +1,7 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/b674c064-c776-4f53-be27-14c6f7cead9c/resourceGroups/appsvc_rg_linux_centralus/providers/Microsoft.Web/sites/oldMean",
+    "appService.deploySubpath": ""
+}

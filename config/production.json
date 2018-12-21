@@ -1,4 +1,6 @@
 {
-    "databaseServerUrl":"localhost://authSample",
-    "JWTPrivateKey":"vidly_jwtPrivateKey"
+    "databaseServerUrl":"mongodb://mongodbtest18.documents.azure.com:10250/mean?ssl=true&sslverifycertificate=false",
+    "JWTPrivateKey":"vidly_jwtPrivateKey",
+    "dbUserName":"mongodbtest18",
+    "dbPassword":"obIn9Vb3kX0J85oKwAcIpWQhgh41g97gILJ6iCv2EAAgduwFG5bZf8QM9jShCNFR2tpYIiXNFakoeoVjHAo4bw=="
   }

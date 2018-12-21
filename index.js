@@ -4,22 +4,11 @@ const mongoose = require("mongoose");
 const config = require("config");
 const mongoDebugger=require("debug")("mongo");
 const appDebugger=require("debug")("index");
+const helmet=require("helmet");
 
 var app = express();
+app.use(helmet());
 var log=require("./logs");
-
-
-process.on("uncaughtException", function (err) {
-
-    
-    log.error(err);
-    
-});
-process.on("unhandledRejection", function (ex) {
-    appDebugger("unhandled rejection");
-});
-
-
 
 mongoose.connect(config.get("databaseServerUrl")).then(() => {
     mongoDebugger('is connected to mongo');
@@ -30,10 +19,13 @@ mongoose.connect(config.get("databaseServerUrl")).then(() => {
 
 
 app.use(express.json());
-app.use('/apis/User/', user);
+app.use('/api/Users/',user);
 
 var portNumber = config.get("port");
-app.listen(portNumber, () => {
-    appDebugger(`listenning to port number ${portNumber}`);
+var server=app.listen(portNumber, () => {
+    console.log(`listenning to port number ${portNumber}`);
 
 });
+
+console.log("environment is now: "+ app.get("env"));
+module.exports=server;

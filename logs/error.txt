@@ -1,1 +1,1 @@
-TypeError: appDebugger.log is not a function
+Error: Configuration property "port" is not defined

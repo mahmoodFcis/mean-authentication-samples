@@ -2,3 +2,7 @@
 {"message":"attempted to write an error to the error.txt","level":"info"}
 {"message":"attempted to write an error to the error.txt","level":"info"}
 {"message":"attempted to write an error to the error.txt","level":"info"}
+{"message":"attempted to write an error to the error.txt","level":"info"}
+{"message":"attempted to write an error to the error.txt","level":"info"}
+{"message":"attempted to write an error to the error.txt","level":"info"}
+{"message":"attempted to write an error to the error.txt","level":"info"}
